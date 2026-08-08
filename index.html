@@ -3,25 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>🎈 Contribution Hunt</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="game">
-        <header>
-            <h1>🎈 Contribution Hunt</h1>
-            <span>Score: <b id="score">0</b></span>
+    <main class="game">
+
+        <header class="game-header">
+
+            <div>
+                <h1>🎈 Contribution Hunt</h1>
+                <p>Chase the green boxes!</p>
+            </div>
+
+            <div class="score">
+                <small>SCORE</small>
+                <strong id="score">0</strong>
+            </div>
+
         </header>
 
-        <canvas id="canvas"></canvas>
 
-        <p>Use <b>WASD</b> or <b>Arrow Keys</b> to fly</p>
+        <section class="game-board">
 
-        <button onclick="restart()">Restart</button>
-    </div>
+            <canvas id="canvas"></canvas>
+
+        </section>
+
+
+        <!-- Mobile controls -->
+
+        <div class="controls">
+
+            <button
+                class="control-btn"
+                data-key="ArrowLeft">
+                ←
+            </button>
+
+            <div class="vertical-controls">
+
+                <button
+                    class="control-btn"
+                    data-key="ArrowUp">
+                    ↑
+                </button>
+
+                <button
+                    class="control-btn"
+                    data-key="ArrowDown">
+                    ↓
+                </button>
+
+            </div>
+
+            <button
+                class="control-btn"
+                data-key="ArrowRight">
+                →
+            </button>
+
+        </div>
+
+
+        <div class="game-info">
+
+            <span>⌨️ WASD / Arrow Keys</span>
+
+            <span>🟩 Collect contributions</span>
+
+        </div>
+
+
+        <button
+            class="restart-btn"
+            onclick="restart()">
+
+            ↻ Restart
+
+        </button>
+
+    </main>
+
 
     <script src="script.js"></script>
+
 </body>
+
 </html>

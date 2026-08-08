@@ -1,153 +1,495 @@
 const canvas = document.getElementById("canvas");
+
 const ctx = canvas.getContext("2d");
-const scoreText = document.getElementById("score");
+
+const scoreElement = document.getElementById("score");
+
 
 let score = 0;
-let gameOver = false;
+
+let gameRunning = true;
+
+let animationId;
+
+
+/*
+    =========================
+        BALLOON
+    =========================
+*/
 
 const balloon = {
-    x: 100,
-    y: 220,
-    speed: 5,
-    size: 32
+
+    x: 120,
+
+    y: 200,
+
+    width: 36,
+
+    height: 36,
+
+    speed: 5
+
 };
 
-const boxes = [];
+
+/*
+    =========================
+        INPUT
+    =========================
+*/
+
 const keys = {};
 
-function resize() {
+
+document.addEventListener("keydown", event => {
+
+    keys[event.key.toLowerCase()] = true;
+
+});
+
+
+document.addEventListener("keyup", event => {
+
+    keys[event.key.toLowerCase()] = false;
+
+});
+
+
+/*
+    =========================
+        CANVAS
+    =========================
+*/
+
+function resizeCanvas() {
+
     canvas.width = canvas.clientWidth;
+
     canvas.height = canvas.clientHeight;
+
 }
 
-window.addEventListener("resize", resize);
-resize();
 
-document.addEventListener("keydown", e => {
-    keys[e.key.toLowerCase()] = true;
-});
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
 
-document.addEventListener("keyup", e => {
-    keys[e.key.toLowerCase()] = false;
-});
 
-function createBox() {
-    boxes.push({
+resizeCanvas();
+
+
+/*
+    =========================
+        CONTRIBUTIONS
+    =========================
+*/
+
+const contributions = [];
+
+
+function createContribution() {
+
+    contributions.push({
+
         x: canvas.width + 20,
-        y: Math.random() * (canvas.height - 80) + 40,
+
+        y:
+            Math.random() *
+            (canvas.height - 60) +
+            30,
+
         size: 18,
-        speed: 3 + score * 0.02
+
+        speed: 3
+
     });
+
 }
+
 
 setInterval(() => {
-    if (!gameOver) createBox();
-}, 900);
+
+    if (gameRunning) {
+
+        createContribution();
+
+    }
+
+}, 800);
+
+
+/*
+    =========================
+        BALLOON MOVEMENT
+    =========================
+*/
 
 function moveBalloon() {
-    if (keys["arrowup"] || keys["w"])
+
+    if (
+        keys["arrowup"] ||
+        keys["w"]
+    ) {
+
         balloon.y -= balloon.speed;
 
-    if (keys["arrowdown"] || keys["s"])
+    }
+
+
+    if (
+        keys["arrowdown"] ||
+        keys["s"]
+    ) {
+
         balloon.y += balloon.speed;
 
-    if (keys["arrowleft"] || keys["a"])
+    }
+
+
+    if (
+        keys["arrowleft"] ||
+        keys["a"]
+    ) {
+
         balloon.x -= balloon.speed;
 
-    if (keys["arrowright"] || keys["d"])
+    }
+
+
+    if (
+        keys["arrowright"] ||
+        keys["d"]
+    ) {
+
         balloon.x += balloon.speed;
 
-    balloon.x = Math.max(20, Math.min(canvas.width - 20, balloon.x));
-    balloon.y = Math.max(25, Math.min(canvas.height - 25, balloon.y));
+    }
+
+
+    /*
+        Keep balloon inside
+        the game area.
+    */
+
+    balloon.x = Math.max(
+
+        20,
+
+        Math.min(
+            canvas.width - 20,
+            balloon.x
+        )
+
+    );
+
+
+    balloon.y = Math.max(
+
+        20,
+
+        Math.min(
+            canvas.height - 20,
+            balloon.y
+        )
+
+    );
+
 }
+
+
+/*
+    =========================
+        COLLISION
+    =========================
+*/
 
 function collision(a, b) {
+
     return (
-        Math.abs(a.x - b.x) < 28 &&
-        Math.abs(a.y - b.y) < 28
+
+        Math.abs(a.x - b.x)
+            < 25
+
+        &&
+
+        Math.abs(a.y - b.y)
+            < 25
+
     );
+
 }
 
+
+/*
+    =========================
+        UPDATE
+    =========================
+*/
+
 function update() {
-    if (gameOver) return;
+
+    if (!gameRunning) return;
+
 
     moveBalloon();
 
-    for (let i = boxes.length - 1; i >= 0; i--) {
-        const box = boxes[i];
 
-        box.x -= box.speed;
+    for (
+        let i = contributions.length - 1;
+        i >= 0;
+        i--
+    ) {
 
-        if (collision(balloon, box)) {
+        const contribution =
+            contributions[i];
+
+
+        contribution.x -=
+            contribution.speed;
+
+
+        /*
+            Collect contribution
+        */
+
+        if (
+            collision(
+                balloon,
+                contribution
+            )
+        ) {
+
             score++;
-            scoreText.textContent = score;
-            boxes.splice(i, 1);
+
+            scoreElement.textContent =
+                score;
+
+            contributions.splice(i, 1);
+
+            continue;
+
         }
 
-        if (box.x < -30) {
-            boxes.splice(i, 1);
+
+        /*
+            Remove objects
+            that left screen
+        */
+
+        if (
+            contribution.x <
+            -30
+        ) {
+
+            contributions.splice(i, 1);
+
         }
+
     }
+
 }
+
+
+/*
+    =========================
+        DRAW
+    =========================
+*/
 
 function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Contribution grid
-    for (let x = 20; x < canvas.width; x += 28) {
-        for (let y = 20; y < canvas.height; y += 28) {
-            ctx.fillStyle = "#0d2114";
-            ctx.fillRect(x, y, 14, 14);
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    /*
+        Contribution grid
+    */
+
+    for (
+        let x = 20;
+        x < canvas.width;
+        x += 28
+    ) {
+
+        for (
+            let y = 20;
+            y < canvas.height;
+            y += 28
+        ) {
+
+            ctx.fillStyle =
+                "#0d2114";
+
+            ctx.fillRect(
+                x,
+                y,
+                14,
+                14
+            );
+
         }
+
     }
 
-    // Green contribution boxes
-    boxes.forEach(box => {
-        ctx.fillStyle = "#39d353";
-        ctx.fillRect(
-            box.x,
-            box.y,
-            box.size,
-            box.size
-        );
-    });
 
-    // Balloon
+    /*
+        Green contributions
+    */
+
+    contributions.forEach(
+        contribution => {
+
+            ctx.fillStyle =
+                "#39d353";
+
+            ctx.fillRect(
+
+                contribution.x,
+
+                contribution.y,
+
+                contribution.size,
+
+                contribution.size
+
+            );
+
+        }
+    );
+
+
+    /*
+        Balloon
+    */
+
     ctx.font = "36px Arial";
-    ctx.fillText("🎈", balloon.x - 18, balloon.y + 12);
 
-    if (gameOver) {
-        ctx.fillStyle = "white";
-        ctx.font = "28px Arial";
-        ctx.textAlign = "center";
-        ctx.fillText(
-            "Game Over",
-            canvas.width / 2,
-            canvas.height / 2
-        );
-        ctx.font = "16px Arial";
-        ctx.fillText(
-            `Score: ${score}`,
-            canvas.width / 2,
-            canvas.height / 2 + 30
-        );
-        ctx.textAlign = "left";
-    }
+    ctx.textAlign = "center";
+
+    ctx.textBaseline = "middle";
+
+    ctx.fillText(
+
+        "🎈",
+
+        balloon.x,
+
+        balloon.y
+
+    );
+
 }
+
+
+/*
+    =========================
+        GAME LOOP
+    =========================
+*/
 
 function gameLoop() {
+
     update();
+
     draw();
-    requestAnimationFrame(gameLoop);
+
+    animationId =
+        requestAnimationFrame(
+            gameLoop
+        );
+
 }
 
-function restart() {
-    score = 0;
-    scoreText.textContent = score;
-    gameOver = false;
-    balloon.x = 100;
-    balloon.y = canvas.height / 2;
-    boxes.length = 0;
-}
 
 gameLoop();
+
+
+/*
+    =========================
+        TOUCH CONTROLS
+    =========================
+*/
+
+document
+    .querySelectorAll("[data-key]")
+    .forEach(button => {
+
+        const key =
+            button.dataset.key.toLowerCase();
+
+
+        button.addEventListener(
+            "pointerdown",
+            event => {
+
+                event.preventDefault();
+
+                keys[key] = true;
+
+            }
+        );
+
+
+        button.addEventListener(
+            "pointerup",
+            event => {
+
+                event.preventDefault();
+
+                keys[key] = false;
+
+            }
+        );
+
+
+        button.addEventListener(
+            "pointerleave",
+            () => {
+
+                keys[key] = false;
+
+            }
+        );
+
+
+        button.addEventListener(
+            "pointercancel",
+            () => {
+
+                keys[key] = false;
+
+            }
+        );
+
+    });
+
+
+/*
+    =========================
+        RESTART
+    =========================
+*/
+
+function restart() {
+
+    score = 0;
+
+    scoreElement.textContent = "0";
+
+    balloon.x = 120;
+
+    balloon.y =
+        canvas.height / 2;
+
+    contributions.length = 0;
+
+    gameRunning = true;
+
+}
