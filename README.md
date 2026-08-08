@@ -61,7 +61,7 @@ A small browser game where you collect GitHub-style contribution boxes with a ba
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=lomunyakisaya&layout=compact&theme=default)
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=lomunyakisaya&theme=default)
+![GitHub Streak](https://streak-stats.vercel.app/?user=lomunyakisaya&theme=default)
 
 </div>
 
