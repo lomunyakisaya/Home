@@ -1,140 +1,80 @@
 <div align="center">
 
-# ISAIAH LOMUNYAK
+# Isaya Lomunyak
 
-### `Engineer • Developer • Electronics Enthusiast • Builder`
+Telecommunication and Information Engineering student at JKUAT, interested in embedded systems, networking, and software.
 
-**Building systems where hardware meets software.**
-
-<p>
-  <a href="https://github.com/lomunyakisaya">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white">
-  </a>
-  <a href="mailto:lomunyakisaya1@gmail.com">
-    <img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white">
-  </a>
-</p>
+[![Email](https://img.shields.io/badge/Email-lomunyakisaya1%40gmail.com-informational?style=flat-square)](mailto:lomunyakisaya1@gmail.com)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-0716967496-25D366?style=flat-square&logo=whatsapp&logoColor=white)](https://wa.me/254716967496)
+[![GitHub](https://img.shields.io/badge/GitHub-lomunyakisaya-181717?style=flat-square&logo=github)](https://github.com/lomunyakisaya)
 
 </div>
 
 ---
 
-## `01` — ABOUT
+## About
 
-I'm **Isaiah Lomunyak**, a Telecommunication & Information Engineering student at **JKUAT**.
+I'm studying Telecommunication and Information Engineering at JKUAT. My interests sit at the intersection of electronics, embedded systems, networking, and software — mostly exploring how hardware and web systems talk to each other.
 
-I enjoy designing and building systems that **sense, communicate, compute and move**.
+## Technologies
 
-```text
-Hardware
-   │
-   ▼
-Embedded Systems
-   │
-   ▼
-Networking
-   │
-   ▼
-Software
-   │
-   ▼
-Intelligent Systems
-02 — TECHNOLOGY
-<table> <tr> <td width="50%" valign="top">
-SOFTWARE
-C / C++
-Python
-JavaScript
-Rust
-Django
-WebSockets
-Git / GitHub
-Linux
-</td> <td width="50%" valign="top">
-HARDWARE
-Arduino
-ESP8266
-ESP32
-Microcontrollers
-UART
-Sensors
-Electronics
-Networking Hardware
-</td> </tr> </table>
-03 — FEATURED PROJECT
-LDOS
-Lomunyak Drone Operating System
+| Category         | Tools |
+|-------------------|-------|
+| Languages          | C, C++, Python, JavaScript, Rust |
+| Embedded / Hardware | Arduino, ESP8266, ESP32, Microcontrollers, UART, Sensors, Electronics |
+| Web / Backend      | Django, WebSockets |
+| Systems / Tools    | Linux, Git/GitHub |
+| Networking         | Networking hardware, Computer networks |
 
-A modular drone platform I'm building for telemetry, communication, autonomous flight and intelligent control.
+## Main project — LDOS (Lomunyak Drone Operating System)
+
+A personal, modular drone software/hardware project I'm building and learning from.
+
+- **Focus areas:** telemetry, communication, flight control, autonomous systems, web-based monitoring
+- **Current architecture:** microcontrollers and UART for low-level communication, ESP devices as network/telemetry bridges, WebSockets for real-time data transfer, and a Django-based backend feeding a web dashboard
+
+LDOS is a work in progress — components are being built and tested incrementally rather than following a fixed roadmap.
+
+## Currently learning
+
+- Algorithms and data structures
+- Systems programming
+- Embedded systems
+- Computer networks
+- Robotics
+
+## Other interests
+
+Electronics · Telecommunications · Computer networks · Embedded systems · Linux · Drones · Robotics · Open source · Algorithms · Photography
+
+## Side project — Contribution Hunt
+
+A small browser game where you collect GitHub-style contribution boxes with a balloon.
+
+[![Play Contribution Hunt](https://img.shields.io/badge/Play-Contribution%20Hunt-2ea44f?style=for-the-badge)](https://lomunyakisaya.github.io/Home/)
+
+## GitHub Stats
 
 <div align="center">
-┌─────────────┐
-│   SENSORS   │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│     MCU     │
-└──────┬──────┘
-       │ UART
-       ▼
-┌─────────────┐
-│     ESP     │
-└──────┬──────┘
-       │ WebSocket
-       ▼
-┌─────────────┐
-│   DJANGO    │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│ WEB DASHBOARD│
-└─────────────┘
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=lomunyakisaya&show_icons=true&theme=default&hide_title=false&count_private=true)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=lomunyakisaya&layout=compact&theme=default)
+
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=lomunyakisaya&theme=default)
+
 </div>
 
-Telemetry · Flight Control · Communication · Networking · Autonomy
+## Contact
 
-04 — CURRENTLY LEARNING
-<table> <tr> <td align="center">Algorithms</td> <td align="center">Data Structures</td> <td align="center">Systems Programming</td> </tr> <tr> <td align="center">Embedded Systems</td> <td align="center">Computer Networks</td> <td align="center">Robotics</td> </tr> </table> <div align="center">
-LEARN → BUILD → BREAK → DEBUG → UNDERSTAND → REPEAT
-</div>
-05 — CONTRIBUTION HUNT
+| | |
+|---|---|
+| Email    | lomunyakisaya1@gmail.com |
+| WhatsApp | 0716967496 |
+| GitHub   | [@lomunyakisaya](https://github.com/lomunyakisaya) |
+
+---
+
 <div align="center">
-A game built into my GitHub profile
-
-Chase the green contribution boxes.
-
-<a href="https://lomunyakisaya.github.io/Home/"> <img src="https://img.shields.io/badge/PLAY_CONTRIBUTION_HUNT-39d353?style=for-the-badge&logo=github&logoColor=white"> </a>
-
-<br><br>
-
-WASD · ARROW KEYS · TOUCH
-
+<sub>Building and learning, one project at a time.</sub>
 </div>
-06 — INTERESTS
-ELECTRONICS          TELECOMMUNICATIONS
-COMPUTER NETWORKS    LINUX
-AUTONOMOUS DRONES    ROBOTICS
-SOFTWARE             OPEN SOURCE
-PHOTOGRAPHY          ALGORITHMS
-07 — GITHUB
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=lomunyakisaya&show_icons=true&theme=github_dark&hide_border=true&rank_icon=github" height="165" />
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=lomunyakisaya&theme=github-dark-blue&hide_border=true" height="165" />
-
-</div>
-08 — CONNECT
-<div align="center">
-	
-WhatsApp	0716967496
-Email	lomunyakisaya1@gmail.com
-GitHub	@lomunyakisaya
-<br>
-Building from Kenya for the world.
-
-CODE IT · CONNECT IT · MAKE IT FLY
-
-<br> <img src="https://komarev.com/ghpvc/?username=lomunyakisaya&style=flat-square&color=39d353&label=PROFILE+VIEWS"> </div> ```
