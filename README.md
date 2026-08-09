@@ -1,6 +1,6 @@
 <div align="center">
 
-# Isaya Lomunyak
+# Lomunyak Isaya 
 
 Telecommunication and Information Engineering student at JKUAT, interested in embedded systems, networking, and software.
 
